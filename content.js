@@ -18,11 +18,11 @@ $( document ).ready( function(){
     let customHeadingText = "Testing 1-2-3"
 
     ///// Makes the image freakout
-    let imageFreaker = false;
+    // let imageFreaker = false;
 
 
     //URL of the API
-    const url = "https://atm-rails-burning-airlines.herokuapp.com/airplanes.json"
+    console.log()
 
 
 
@@ -83,7 +83,3 @@ $( document ).ready( function(){
     //   void( 0 );
 
 });
-
-
-
-// document.getElementsByTagName("p")[2].style.backgroundColor = "red"
