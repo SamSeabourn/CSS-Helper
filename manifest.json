@@ -6,7 +6,7 @@
 	"description": "Something fun to learn about extensions.",
 	"manifest_version": 2,
 	"browser_action": {
-		"default_title": "Let the games begin.",
+		"default_title": "Image swapper.",
 		"default_icon": "icons/icon16.png"
 	},
 	"permissions": [
