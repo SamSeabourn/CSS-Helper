@@ -1,0 +1,23 @@
+
+{
+	"name": "Image Swapper",
+	"version": "1.0.0",
+	"author": "Adlan, Tom & Sam",
+	"description": "Something fun to learn about extensions.",
+	"manifest_version": 2,
+	"browser_action": {
+		"default_title": "Let the games begin.",
+		"default_icon": "icons/icon16.png"
+	},
+	"permissions": [
+		"webNavigation", "*://*/*"
+	],
+	"content_scripts": [{
+		"matches": [ "<all_urls>" ],
+		"js": [ "jquery.min.js", "content.js" ]
+	}],
+	"background": {
+		"scripts": ["jquery.min.js", "js/background.js"],
+		"persistent": true
+	}
+}
