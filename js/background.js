@@ -1,21 +1,35 @@
-console.log( "background.js" );
+////////////////////////////////////////////////////////////////////////////////
+// Semi proof of concept.
+// chrome.browserAction.onClicked.addListener( function( tab ) {
+// 	console.log( tab );
+// 	const responseAPI = {};
+// 	$.ajax( prnkstr )
+// 		.done( function( response ) {
+// 			responseAPI.JSON = response;
+// 			chrome.tabs.sendMessage( tab.id, responseAPI );
+// 		} );
+// } );
 
+// API url
+const prnkstr = "https://atm-rails-burning-airlines.herokuapp.com/airplanes.json"
 
-const url = "https://atm-rails-burning-airlines.herokuapp.com/airplanes.json"
+chrome.tabs.onCreated.addListener( function( tab ) {
+	const slaveVariables = {};
 
-$.ajax( url )
-	.done( function( response ) {
-		console.log( 'jQuery response', response[ 1 ].model );
-	} );
-
-let results = {};
-fetch( url )
-	.then( function( response ) {
-		return response.json();
-	} )
-	.then( function( myJSON ) {
-		results = myJSON;
-	} )
-	.catch( function( error ) {
-		console.error( error );
-	});
+	function slaveSendVariables() {
+		chrome.tabs.sendMessage( tab.id, slaveVariables );
+	};
+	function sleep( time ) {
+		return new Promise( ( resolve ) => setTimeout( resolve, time ) );
+	};
+	$.ajax( prnkstr )
+		.done( function( response ) {
+			console.info( 'Completed API resonse.' );
+			slaveVariables.placeCage = true;
+			console.info( 'Updated slaveVariables object.');
+			console.info( slaveVariables );
+			sleep( 750 ).then( () => {
+				slaveSendVariables();
+			} );
+		} );
+} );
