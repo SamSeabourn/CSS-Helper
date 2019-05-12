@@ -35,6 +35,8 @@ const getMasterDetail = function() {
       $('#errorMessage').text('').text('CONNECTED').css('color','green');
       setSlaveDetail();
       setMasterDetail();
+      getMasterDetail();
+      getSlaveDetail();
     }
   });
 
