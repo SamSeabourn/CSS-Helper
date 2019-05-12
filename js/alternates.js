@@ -17,14 +17,6 @@ let imageFreaker = false;
 //URL of the API
 const url = "https://atm-rails-burning-airlines.herokuapp.com/airplanes.json"
 
-if ( fillMurray ) {
-	let images = document.getElementsByTagName( 'img' );
-	for ( let i = 0, l = images.length; i < l; i++ ) {
-		images[ i ].src = 'https://fillmurray.com/' + images[ i ].width + '/' + images[ i ].height;
-	}
-}
-
-
 if ( customHeadingOn ) {
 	let paragraphs = document.getElementsByTagName( 'h1' );
 	for ( let i = 0, l = paragraphs.length; i < l; i++ ) {
