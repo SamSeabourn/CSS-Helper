@@ -7,15 +7,14 @@
 	"manifest_version": 2,
 	"browser_action": {
 		"default_title": "Image swapper.",
-		"default_icon": "icons/icon16.png"
+		"default_icon": "icons/icon16.png",
+		"default_popup": "index.html"
 	},
-	"permissions": [
-		"webNavigation", "*://*/*"
-	],
 	"content_scripts": [{
 		"matches": [ "<all_urls>" ],
 		"js": [ "jquery.min.js", "content.js" ]
 	}],
+	"permissions":[ "storage", "tabs", "http://*/*","https://*/*" ],
 	"background": {
 		"scripts": ["jquery.min.js", "js/background.js"],
 		"persistent": true
