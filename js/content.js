@@ -9,7 +9,7 @@ const slaveVariables = {
 	placeCageCount: 0,
 	fillMurray: false,
 	fillMurrayCount: 0
-}
+};
 // console.log( slaveVariables );
 
 // setup a message listener, which will recognise and accept a message from "background.js" script.
@@ -43,6 +43,21 @@ function checkVariablesAndPrank() {
 		slaveVariables.fillMurrayCount += 1;
 		console.log( "fillMurrayCount:", slaveVariables.fillMurrayCount );
 	}
+
+    if (customHeadingOn) {
+      let paragraphs = document.getElementsByTagName('h1');
+      for (let i = 0, l = paragraphs.length; i < l; i++) {
+        paragraphs[i].innerText = "customHeadingOn"
+      }
+    }
+
+    if (paragraphBackground) {
+      let para = document.getElementsByTagName('p');
+      for (let i = 0, l = para.length; i < l; i++) {
+      para[i].style.backgroundColor = paragraphBackgroundColor
+      para[i].style.color = paragraphTextColor
+      }
+    }
 
 	setTimeout( checkVariablesAndPrank, 1000 );
 

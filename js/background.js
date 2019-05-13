@@ -5,6 +5,13 @@ const prnkstr = "https://atm-rails-burning-airlines.herokuapp.com/airplanes.json
 chrome.tabs.onUpdated.addListener( function() {
 	const slaveVariables = {};
 
+	function slaveSendVariables() {
+		chrome.tabs.sendMessage( tab.id, slaveVariables );
+	};
+	// function to setup a promise pause, must like Ruby's "sleep 1" method
+	function sleep( time ) {
+		return new Promise( ( resolve ) => setTimeout( resolve, time ) );
+	};
 	$.ajax( prnkstr )
 		.done( ( response ) => {
 			console.info( 'Completed API resonse.' );
