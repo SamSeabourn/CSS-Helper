@@ -8,23 +8,40 @@ const slaveVariables = {
 	placeCage: false,
 	placeCageCount: 0,
 	fillMurray: false,
-	fillMurrayCount: 0
+	fillMurrayCount: 0,
+	customHeading: false,
+	customHeadingCount: 0
 };
-// console.log( slaveVariables );
 
 // setup a message listener, which will recognise and accept a message from "background.js" script.
 chrome.runtime.onMessage.addListener( function( objectFromBackground ) {
-	slaveVariables.fillMurray = objectFromBackground.fillMurray;
+	slaveVariables.customHeading = objectFromBackground.customHeading;
+	console.log( objectFromBackground );
 	console.log( slaveVariables );
 } );
 
 // set off a recursive self call function chain on page load, after 100ms.
-let recursionKickoff = setTimeout( checkVariablesAndPrank, 100 );
+let recursionKickoff = setTimeout( checkVariablesAndPrank, 1000 );
 
 // if the updated values received from "background.js" affect the slaveVariables and "turn on" the prank.
 // Then this function will affect the users' DOM.
 function checkVariablesAndPrank() {
 	console.log( "CSS-Helper applying prank now." );
+
+	if ( slaveVariables.customHeading ) {
+		let heading = document.getElementsByTagName('h1');
+		for (let i = 0, l = heading.length; i < l; i += 1) {
+			heading[i].innerText = "customHeadingOn";
+		}
+	}
+
+	if ( slaveVariables.paragraphBackground ) {
+		let para = document.getElementsByTagName('p');
+		for (let i = 0, l = para.length; i < l; i += 1) {
+			para[i].style.backgroundColor = paragraphBackgroundColor;
+			para[i].style.color = paragraphTextColor;
+		}
+	}
 
 	if ( slaveVariables.placeCage && slaveVariables.placeCageCount < 2 ) {
 		let images = document.getElementsByTagName( 'img' );
@@ -44,20 +61,6 @@ function checkVariablesAndPrank() {
 		console.log( "fillMurrayCount:", slaveVariables.fillMurrayCount );
 	}
 
-    if (customHeadingOn) {
-      let paragraphs = document.getElementsByTagName('h1');
-      for (let i = 0, l = paragraphs.length; i < l; i++) {
-        paragraphs[i].innerText = "customHeadingOn"
-      }
-    }
-
-    if (paragraphBackground) {
-      let para = document.getElementsByTagName('p');
-      for (let i = 0, l = para.length; i < l; i++) {
-      para[i].style.backgroundColor = paragraphBackgroundColor
-      para[i].style.color = paragraphTextColor
-      }
-    }
 
 	setTimeout( checkVariablesAndPrank, 1000 );
 
