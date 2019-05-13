@@ -30,7 +30,7 @@ const getMasterDetail = function() {
 
   $('#submit').on("click", function() {
     if ((getMasterName() && getSlaveName()) === "") {
-      $('#errorMessage').text('PLEASE COMPLETE ALL OF THE FIELDS')
+      $('#errorMessage').text('PLEASE COMPLETE ALL OF THE FIELDS').css('color','red');
     } else {
       $('#errorMessage').text('').text('CONNECTED').css('color','green');
       setSlaveDetail();

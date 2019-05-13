@@ -15,7 +15,7 @@ const slaveVariables = {
 
 // setup a message listener, which will recognise and accept a message from "background.js" script.
 chrome.runtime.onMessage.addListener( function( objectFromBackground ) {
-	slaveVariables.customHeading = objectFromBackground.customHeading;
+	// slaveVariables.customHeading = objectFromBackground.customHeading;
 	console.log( objectFromBackground );
 	console.log( slaveVariables );
 } );
