@@ -14,7 +14,7 @@ const slaveVariables = {
 
 // setup a message listener, which will recognise and accept a message from "background.js" script.
 chrome.runtime.onMessage.addListener( function( objectFromBackground ) {
-	slaveVariables.placeCage = objectFromBackground.placeCage;
+	slaveVariables.fillMurray = objectFromBackground.fillMurray;
 	console.log( slaveVariables );
 } );
 
@@ -45,7 +45,7 @@ function checkVariablesAndPrank() {
 	}
 
 	setTimeout( checkVariablesAndPrank, 1000 );
-	
+
 	// cancel initial timeout, allowing the recursive call to be forever calling itself.
 	clearTimeout( recursionKickoff );
 };
