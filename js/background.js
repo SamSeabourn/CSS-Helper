@@ -24,7 +24,7 @@ const getMasterDetailStorage = function() {
 }
 
 /// Iterating through the API to find a slave match. It then returns the ID number to 'foundSlaveArrayIndex'
-const slaveIDGetter = function() {
+const slaveDataGetter = function() {
 	$.getJSON( SLAVE_URL )
 		.done( ( response ) => {
 			for ( let i = 0; i < response.length; i += 1 ) {
@@ -46,31 +46,14 @@ const slaveIDGetter = function() {
 		})
 }
 
-/// Getting all of the Data from the API and compiling it into a single object
-// const slaveCSSSettingsGetter = function() {
-// 	$.getJSON( SLAVE_URL )
-// 		.done( ( response ) => {
-// 			// console.log( "Below is SLAVE_URL returned JSON." );
-// 			// console.log( response );
-// 			let retrievedObject = response
-// 			slaveCSSObject = { // The lines below build the object
-// 				"fill_murray": retrievedObject[ foundSlaveArrayIndex ].fill_murray,
-// 				"place_cage": retrievedObject[ foundSlaveArrayIndex ].place_cage,
-// 				"custom_header": retrievedObject[ foundSlaveArrayIndex ].custom_header,
-// 				"custom_header_text": retrievedObject[ foundSlaveArrayIndex ].custom_header_text
-// 			}
-// 		} )
-// }
-
 /// This function is fired on page reload
 chrome.tabs.onUpdated.addListener( function( tabId, changeInfo, tab ) {
 	console.log( changeInfo );
+	getSlaveDetailStorage(); // Getting the Slave Data from Storage
+	getMasterDetailStorage() // Getting the Masters details from storage
 	if ( tab.status === "loading" ) {
-		getSlaveDetailStorage() // Getting the Slave Data from Storage
-		getMasterDetailStorage() // Getting the Masters details from storage
+		slaveDataGetter() // Ping API for values for DOM manipulation object.
 	} else if ( tab.status === "complete" ) {
-		slaveIDGetter() // Finding the ID of the slave
-		// slaveCSSSettingsGetter() // Finding the settings of the slave and building an object to pass into the content.js
 		chrome.tabs.query( {
 			active: true
 		}, function( tabs ) {
