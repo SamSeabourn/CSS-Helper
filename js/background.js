@@ -2,7 +2,7 @@
 /// Current data
 let slaveName = "" // This comes from the cloud save data and retrieved with "getSlaveDetailStorage()"
 let masterName = "" // This comes from the cloud saved data and retrieved with "getMasterDetailStorage()"
-let foundSlaveArrayIndex = 0 // This comes from an API Search
+let foundSlaveJsonArrayIndex = 0 // This comes from an API Search
 let slaveCSSObject = {} // This comes from the API to be sent to the content.JS
 
 /// Server URLS
@@ -23,7 +23,7 @@ const getMasterDetailStorage = function() {
 	} );
 }
 
-/// Iterating through the API to find a slave match. It then returns the ID number to 'foundSlaveArrayIndex'
+/// Iterating through the API to find a slave match. It then returns the ID number to 'foundSlaveJsonArrayIndex'
 const slaveDataGetter = function() {
 	$.getJSON( SLAVE_URL )
 		.done( ( response ) => {
@@ -31,17 +31,17 @@ const slaveDataGetter = function() {
 				// Iterating over Users.json response looking for match against local storage 'slaveName'
 				if ( slaveName === '"' + response[ i ].name + '"' ) {
 					// console.log( "Match found! Array possition " + response[ i ] );
-					foundSlaveArrayJsonIndex = [ i ] // this remebers the ID of the slave found
+					foundSlaveJsonArrayIndex = [ i ] // this remebers the ID of the slave found
 				}
 			}
 		} )
 		.done( ( response ) => {
 			console.log( response );
 			slaveCSSObject = {
-				"fill_murray": response[ foundSlaveArrayIndex ].fill_murray,
-				"place_cage": response[ foundSlaveArrayIndex ].place_cage,
-				"custom_header": response[ foundSlaveArrayIndex ].custom_header,
-				"custom_header_text": response[ foundSlaveArrayIndex ].custom_header_text
+				"fill_murray": response[ foundSlaveJsonArrayIndex ].fill_murray,
+				"place_cage": response[ foundSlaveJsonArrayIndex ].place_cage,
+				"custom_header": response[ foundSlaveJsonArrayIndex ].custom_header,
+				"custom_header_text": response[ foundSlaveJsonArrayIndex ].custom_header_text
 			}
 		})
 }
