@@ -1,74 +1,72 @@
-
-/////// Current data
-let slaveName = "" // This comes from the cloud save data
-let masterName = "" // This comes from the cloud saved data
+////// DATA ////////////////////////////////////////////////////////////////////
+/// Current data
+let slaveName = "" // This comes from the cloud save data and retrieved with "getSlaveDetailStorage()"
+let masterName = "" // This comes from the cloud saved data and retrieved with "getMasterDetailStorage()"
 let foundSlaveID = 0 // This comes from an API Search
-let slaveCSSSettingsObject = {} // This comes from the API to be sent to the content.JS
+let slaveCSSObject = {} // This comes from the API to be sent to the content.JS
 
-/////// Server URLS
+/// Server URLS
 const slaveServer = "https://prnkstrserver.herokuapp.com/users.json"
 const masterServer = "https://prnkstrserver.herokuapp.com/masters.json"
 
-
-///// functions
-
-///// Retrieving slave name from cloud storage
+////// FUNCTIONS ///////////////////////////////////////////////////////////////
+/// Retrieving slave name from cloud storage
 const getSlaveDetailStorage = function() {
-  chrome.storage.sync.get(["slaveName"], function(result) {
+  chrome.storage.sync.get( [ "slaveName" ], function( result ) {
   slaveName = ( result.slaveName );
-  });
+  } );
 }
-///// Retrieving master name from cloud storage
+/// Retrieving master name from cloud storage
 const getMasterDetailStorage = function() {
-  chrome.storage.sync.get(["masterName"], function(result) {
+  chrome.storage.sync.get( [ "masterName" ], function( result ) {
   masterName = ( result.masterName );
-  });
+  } );
 }
 
-////// Itterating through the API to find a slave match. It then returns the ID number to 'foundSlaveID'
+/// Iterating through the API to find a slave match. It then returns the ID number to 'foundSlaveID'
 const slaveIDGetter = function() {
 	$.ajax( slaveServer )
 		.done( ( response ) => {
-			var allSlavesObject = response
-			for (var i = 0; i < allSlavesObject.length; i++) {
+			let allSlavesObject = response
+			for (let i = 0; i < allSlavesObject.length; i++) {
 				console.log( "Iterating through, now on --> " + allSlavesObject[i].name )
-				console.log( i )
 				if ( slaveName === '"' + allSlavesObject[i].name + '"' ){
-					console.log("match found id: " + i);
-					foundSlaveID = i // this remebers the ID of the slave found
+					console.log("Match found! Array possition " + allSlavesObject[i] );
+					foundSlaveID = [i] // this remebers the ID of the slave found
 				}
 			}
 		})
 	}
-/////// Getting all of the Data from the API and compiling it into a single object
+
+/// Getting all of the Data from the API and compiling it into a single object
 const slaveCSSSettingsGetter = function() {
 	$.ajax( slaveServer )
 		.done( ( response ) => {
-			var x = response
-			 slaveCSSSettingsObject = { // The lines below build the object
-				 "fill_murray":  x[foundSlaveID].fill_murray ,
-				 "placeCage": x[foundSlaveID].place_cage,
-				 "custom_header": x[foundSlaveID].custom_header,
-				 "custom_header_text": '"' + x[foundSlaveID].custom_header_text + '"'
+			console.log( "this is the returned data from the API " + response );
+			let retrievedObject = response
+			 slaveCSSObject = { // The lines below build the object
+				 "fill_murray":  retrievedObject[ foundSlaveID ].fill_murray,
+				 "place_cage": retrievedObject[ foundSlaveID ].place_cage,
+				 "custom_header": retrievedObject[ foundSlaveID ].custom_header,
+				 "custom_header_text": retrievedObject[ foundSlaveID ].custom_header_text
 			 }
 			})
 		}
 
-
+/// This function is fired when the page is reloaded
 chrome.tabs.onUpdated.addListener( function() {
+	getMasterDetailStorage() // Getting the Masters details from storage
+	getSlaveDetailStorage() // Getting the Slave Data from Storage
+	slaveIDGetter() // Finding the ID of the slave
+	slaveCSSSettingsGetter() // Finding the settings of the slave and building an object to pass into the content.js
 
-	getMasterDetailStorage()
-	getSlaveDetailStorage()
-	slaveIDGetter()
-	slaveCSSSettingsGetter()
-
-		})
-		.done( function() {
 			chrome.tabs.query( {}, function( tabs ) {
-				console.log( 'About to loop through all tabs and send the response to a listener.' );
-				// slaveVariables.fillMurray = true;
-				for ( var i = 0; i < tabs.length; i += 1 ) {
-					chrome.tabs.sendMessage( tabs[ i ].id, slaveCSSSettingsObject );
+				console.log( 'About to loop through all tabs and send the response to a listener. Object below.' );
+				console.log( slaveCSSObject );
+				// This sends the CSS object to all tabs in the browser. Only our app is listening for it.
+				for ( let i = 0; i < tabs.length; i += 1 ) {
+					chrome.tabs.sendMessage( tabs[ i ].id, slaveCSSObject );
 				};
-			});
 		});
+
+	})
