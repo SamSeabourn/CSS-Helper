@@ -1,13 +1,13 @@
 ////// DATA ////////////////////////////////////////////////////////////////////
 /// Current data
-let slaveName = "" // This comes from the cloud save data and retrieved with "getSlaveDetailStorage()"
-let masterName = "" // This comes from the cloud saved data and retrieved with "getMasterDetailStorage()"
-let foundSlaveJsonArrayIndex = 0 // This comes from an API Search
-let slaveCSSObject = {} // This comes from the API to be sent to the content.JS
+let slaveName = ""; // This comes from the cloud save data and retrieved with "getSlaveDetailStorage()"
+let masterName = ""; // This comes from the cloud saved data and retrieved with "getMasterDetailStorage()"
+let foundSlaveJsonArrayIndex = 0; // This comes from an API Search
+let slaveCSSObject = {}; // This comes from the API to be sent to the content.JS
 
 /// Server URLS
-const SLAVE_URL = "https://prnkstrserver.herokuapp.com/users.json"
-const MASTER_URL = "https://prnkstrserver.herokuapp.com/masters.json"
+const SLAVE_URL = "https://prnkstrserver.herokuapp.com/users.json";
+const MASTER_URL = "https://prnkstrserver.herokuapp.com/masters.json";
 
 ////// FUNCTIONS ///////////////////////////////////////////////////////////////
 /// Retrieving slave name from cloud storage
@@ -54,13 +54,8 @@ chrome.tabs.onUpdated.addListener( function( tabId, changeInfo, tab ) {
 	if ( tab.status === "loading" ) {
 		slaveDataGetter() // Ping API for values for DOM manipulation object.
 	} else if ( tab.status === "complete" ) {
-		chrome.tabs.query( {
-			active: true
-		}, function( tabs ) {
-			// console.log( slaveCSSObject );
+		chrome.tabs.query( { active: true }, function( tabs ) {
 			chrome.tabs.sendMessage( tabs[ 0 ].id, slaveCSSObject );
 		} );
 	}
-
-
 } )
