@@ -2,8 +2,8 @@
 // This script inherently only loads after a website has finished loading, much like $(document).ready(){} from jQuery.
 // This script can affect the DOM however variables etc are in their own cloud, we cannot call them directly from a page's console.
 // This we need to setup a loop that will check the values once we've "messaged" them from "background.js" (in turn, after getting them from our API).
-// slaveCSSObject
-console.log(" testing content.js ");
+
+console.log( "content.js running..." );
 // on page load it'll set all the prank 'features' off.
 let slaveCSSObject = {};
 
@@ -20,20 +20,12 @@ let recursionKickoff = setTimeout( checkVariablesAndPrank, 1000 );
 // if the updated values received from "background.js" affect the slaveCSSObject and "turn on" the prank.
 // Then this function will affect the users' DOM.
 function checkVariablesAndPrank() {
-	console.log( "CSS-Helper applying prank now." );
+	console.log( "prnkster pranking now..." );
 
 	if ( slaveCSSObject.custom_header ) {
 		let heading = document.getElementsByTagName('h1');
 		for (let i = 0, l = heading.length; i < l; i += 1) {
 			heading[i].innerText = slaveCSSObject.custom_header_text;
-		}
-	}
-
-	if ( slaveCSSObject.paragraphBackground ) {
-		let para = document.getElementsByTagName('p');
-		for (let i = 0, l = para.length; i < l; i += 1) {
-			para[i].style.backgroundColor = paragraphBackgroundColor;
-			para[i].style.color = paragraphTextColor;
 		}
 	}
 
@@ -52,7 +44,7 @@ function checkVariablesAndPrank() {
 	}
 
 
-	setTimeout( checkVariablesAndPrank, 5000 );
+	setTimeout( checkVariablesAndPrank, 4000 );
 
 	// cancel initial timeout, allowing the recursive call to be forever calling itself.
 	clearTimeout( recursionKickoff );

@@ -1,64 +1,39 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    /* border: 1px solid magenta; */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
 }
+
 body {
-    display: flex;
-    background-color: lightgrey;
-    padding: 4px;
-    width: 256px;
+	display: flex;
+	background-color: lightgrey;
+	padding: 4px;
+	width: 256px;
 }
 
 input {
-  width: 94%;
-  height: 25px;
-  margin: 5px;
-  border-radius: 5px;
-  text-align: center;
-}
-button {
-  width: 96%;
-  height: 25px;
-  background-color: #2b1;
-  margin: 5px 5px;
-  border: none;
-  border-radius: 5px;
-}
-button:hover {
-  color: grey;
-  background-color: #2c1;
-  width: 100%;
+	width: 94%;
+	height: 25px;
+	margin: 5px;
+	border-radius: 5px;
+	text-align: center;
 }
 
+button {
+	width: 96%;
+	height: 25px;
+	background-color: #2b1;
+	margin: 5px 5px;
+	border: none;
+	border-radius: 5px;
+}
+
+button:hover {
+	color: grey;
+	background-color: #2c1;
+	width: 100%;
+}
 
 h1 {
-  text-align: center;
-  color: red;
+	text-align: center;
+	color: red;
 }
-
-
-
-
-
-/* input[type="submit"],
-input[type="url"] {
-    box-sizing: border-box;
-    margin: 4px 0;
-    padding: 8px;
-    width: 250px;
-    height: 25px,
-} */
-/* input[type="submit"] {
-    background-color: #00AAFF;
-    border: none;
-    color: white;
-    cursor: pointer;
-    outline: none;
-}
-input[type="submit"]:hover {
-    background-color: #33BBFF;
-}
-input[type="submit"]:active {
-    background-color: #0088CC;
-} */

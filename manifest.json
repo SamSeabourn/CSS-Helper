@@ -1,12 +1,12 @@
 {
 	"manifest_version": 2,
-	"name": "CSS Helper",
+	"name": "prnkstr",
 	"version": "1.0.0",
 	"author": "Adlan, Tom & Sam",
 	"description": "A simple and effective DOM manipulation extension for pranking purposes.",
 	"browser_action": {
 		"default_title": "Image swapper.",
-		"default_icon": "icons/icon16.png",
+		"default_icon": "icons/dexter_32.png",
 		"default_popup": "popup.html"
 	},
 
