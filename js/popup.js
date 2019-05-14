@@ -3,7 +3,6 @@ console.log( "popup.js running..." );
 const getSlaveName = function() {
 	return $( "#slaveName" ).val()
 }
-
 const getMasterName = function() {
 	return $( "#masterName" ).val()
 }
@@ -33,6 +32,7 @@ const getMasterDetail = function() {
 	} );
 }
 
+/////// Post to server on submit
 $( "#submit" ).on( "click", function() {
 	if ( ( getMasterName() && getSlaveName() ) === "" ) {
 		$( "#errorMessage" ).text( "PLEASE COMPLETE ALL OF THE FIELDS" ).css( "color", "red" );
