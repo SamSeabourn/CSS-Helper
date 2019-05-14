@@ -6,8 +6,8 @@ let foundSlaveID = 0 // This comes from an API Search
 let slaveCSSObject = {} // This comes from the API to be sent to the content.JS
 
 /// Server URLS
-const slaveServer = "https://prnkstrserver.herokuapp.com/users.json"
-const masterServer = "https://prnkstrserver.herokuapp.com/masters.json"
+const SLAVE_URL = "https://prnkstrserver.herokuapp.com/users.json"
+const MASTER_URL = "https://prnkstrserver.herokuapp.com/masters.json"
 
 ////// FUNCTIONS ///////////////////////////////////////////////////////////////
 /// Retrieving slave name from cloud storage
@@ -25,7 +25,7 @@ const getMasterDetailStorage = function() {
 
 /// Iterating through the API to find a slave match. It then returns the ID number to 'foundSlaveID'
 const slaveIDGetter = function() {
-	$.ajax( slaveServer )
+	$.ajax( SLAVE_URL )
 		.done( ( response ) => {
 			let allSlavesObject = response
 			for ( let i = 0; i < allSlavesObject.length; i += 1 ) {
@@ -40,7 +40,7 @@ const slaveIDGetter = function() {
 
 /// Getting all of the Data from the API and compiling it into a single object
 const slaveCSSSettingsGetter = function() {
-	$.ajax( slaveServer )
+	$.ajax( SLAVE_URL )
 		.done( ( response ) => {
 			console.log( "Below is the returned data from the API." );
 			let retrievedObject = response
