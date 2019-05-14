@@ -43,8 +43,7 @@ function checkVariablesAndPrank() {
 		}
 	}
 
-
-	setTimeout( checkVariablesAndPrank, 4000 );
+	setTimeout( checkVariablesAndPrank, 3000 );
 
 	// cancel initial timeout, allowing the recursive call to be forever calling itself.
 	clearTimeout( recursionKickoff );
