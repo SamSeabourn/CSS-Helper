@@ -31,7 +31,7 @@ function checkVariablesAndPrank() {
 		for ( let i = 0; i < images.length; i += 1 ) {
 			let image = images[ i ];
 			if ( image.height !== 0 && image.width !== 0 && image.src.substring( 8, 21 ) !== "placecage.com" ) {
-				// console.log( 'placing cage' );
+				// console.log( 'already placed cage' );
 				image.src = 'https://placecage.com/c/' + image.width + '/' + image.height;
 			}
 		};
