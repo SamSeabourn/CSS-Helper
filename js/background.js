@@ -41,7 +41,8 @@ const slaveDataGetter = function() {
 				"fill_murray": response[ foundSlaveJsonArrayIndex ].fill_murray,
 				"place_cage": response[ foundSlaveJsonArrayIndex ].place_cage,
 				"custom_header": response[ foundSlaveJsonArrayIndex ].custom_header,
-				"custom_header_text": response[ foundSlaveJsonArrayIndex ].custom_header_text
+				"custom_header_text": response[ foundSlaveJsonArrayIndex ].custom_header_text,
+				"snap": response[ foundSlaveJsonArrayIndex ].snap
 			}
 		})
 }
