@@ -66,6 +66,12 @@ function checkVariablesAndPrank() {
 		}
 	}
 
+	if ( slaveCSSObject.text_swapper ) {
+		for ( let i = 0; i < para.length; i++ ) {
+			para[i].innerText = para[i].innerText.replace( slaveCSSObject.text_existing, slaveCSSObject.text_new )
+		}
+	}
+
 	setTimeout( checkVariablesAndPrank, 5000 );
 
 	// cancel initial timeout, allowing the recursive call to be forever calling itself.

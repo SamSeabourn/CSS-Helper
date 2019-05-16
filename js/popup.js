@@ -117,6 +117,6 @@ $( "#submit" ).on( "click", async () => {
 			getMasterDetail();
 			getSlaveDetail();
 			updateSlaveDB();
-			setTimeout(function(){ window.close(); }, 2500);
+			setTimeout(function(){ window.close(); }, 3000);
 		}
  });
