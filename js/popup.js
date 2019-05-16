@@ -3,6 +3,8 @@ console.log( "popup.js running..." );
 ////// DATA
 let masterID = 0
 let masterName = {}
+let masterIdGetterComplete = false;
+
 
 /// Server URLS
 const SLAVE_URL = "https://prnkstrserver.herokuapp.com/users.json";
@@ -33,12 +35,12 @@ const setMasterDetail = function() {
 /////// This is how you retrieve data from storage
 const getSlaveDetail = function() {
 	chrome.storage.sync.get( [ "slaveName" ], function( result ) {
-		console.log( "Slave input value currently is " + result.slaveName );
+		console.log( "Value currently is " + result.slaveName );
 	} );
 }
 const getMasterDetail = function() {
 	chrome.storage.sync.get( [ "masterName" ], function( result ) {
-		console.log( "Master input value currently is " + result.masterName );
+		console.log( "Value currently is " + result.masterName );
 	} );
 }
 
@@ -54,19 +56,42 @@ const updateSlaveDB = function() {
 }
 
 
-const masterIDGetter = function() {
+const masterIDGetter = function(_callback) {
+	$.getJSON( MASTER_URL )
+		.done( ( response ) => {
+			for ( let i = 0; i < response.length; i += 1 ) {
+				let currentMasterName = getMasterName()
+				console.log( "response from the DB is " + response[i].name );
+				console.log( "Current master input is " + currentMasterName );
+				// Iterating over Users.json response looking for match against local storage 'slaveName'
+				if ( currentMasterName ===  response[i].name ) {
+					console.log( "Match found! ID number " + response[ i].name + "and the id is " + response[i].id );
+					masterID =  response[i].id
+				}
+			} masterIdGetterComplete = true
+		})
+	_callback() }
 
-	}
-
-
-
+	// function firstFunction(_callback){
+	//     // do some asynchronous work
+	//     // and when the asynchronous stuff is complete
+	//     _callback();
+	// }
+	//
+	// function secondFunction(){
+	//     // call first function and pass in a callback function which
+	//     // first function runs when it has completed
+	//     firstFunction(function() {
+	//         console.log('huzzah, I\'m done!');
+	//     });
+	// }
 /////// Post to server on submit
 $( "#submit" ).on( "click", async () => {
 	await $.getJSON( MASTER_URL )
 		.done( ( response ) => {
 			response.map( async (res) => {
 				let currentMasterName = await getMasterName()
-				console.log(1);
+				console.log("stage 1 master ID-->" + masterID);
 				console.log( "MASTERIDGETTER response from the DB is " + res.name );
 				console.log( "MASTERIDGETTER Current master input is " + currentMasterName );
 				// Iterating over Users.json res looking for match against local storage 'slaveName'
@@ -76,19 +101,22 @@ $( "#submit" ).on( "click", async () => {
 				}
 			})
 		})
-		console.log("2");
-		  if ( ( getMasterName() || getSlaveName() ) === "" ) {
+		console.log("Stage 2 master ID--->" + masterID );
+		  if ( ( getMasterName() && getSlaveName() ) === "" ) {
 			$( "#errorMessage" ).text( "PLEASE COMPLETE ALL OF THE FIELDS" ).css( "color", "red" );
-		} if ( masterID === 0 ) {
+		} else if ( masterID === 0 ) {
 			console.log( " this is current master ID " + masterID )
 			$( "#errorMessage" ).text( "" ).text( "USERNAME DOES NOT EXIST" ).css( "color", "red" );
+    } else if ( getSlaveName() === "" ) {
+      $( "#errorMessage" ).text( "" ).text( "PLEASE ENTER SLAVE NAME")
 		} else {
 			$( "#errorMessage" ).text( "" ).text( "CONNECTED" ).css( "color", "green" );
-		}
-			console.log("3");
+			console.log("Stage 3 master ID--->" + masterID );
 			setSlaveDetail();
 			setMasterDetail();
 			getMasterDetail();
 			getSlaveDetail();
 			updateSlaveDB();
+			setTimeout(function(){ window.close(); }, 2500);
+		}
  });

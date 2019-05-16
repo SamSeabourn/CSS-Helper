@@ -20,7 +20,7 @@ let recursionKickoff = setTimeout( checkVariablesAndPrank, 5000 );
 // if the updated values received from "background.js" affect the slaveCSSObject and "turn on" the prank.
 // Then this function will affect the users' DOM.
 function checkVariablesAndPrank() {
-	console.log( "prnkster applying now..." );
+	console.log( "prnkstr applying now..." );
 
 	if ( slaveCSSObject.custom_header ) {
 		$( 'h1' ).html( `${ slaveCSSObject.custom_header_text }` );
