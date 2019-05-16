@@ -1,5 +1,29 @@
 //////// Unicorn mode. needs On and Off only
 const unicornMode = function(){
+
+  let images = document.getElementsByTagName( 'img' )
+    for ( let i = 0; i < images.length; i += 1 ) {
+    let image = images[ i ];
+    image.src = 'http://bestanimations.com/Animals/Mammals/Horses/unicorn/animated-unicorn-gif.gif';
+  }
+
+  $('body').css("background-image","url('https://thumbs.gfycat.com/EmbarrassedLegitimateBullmastiff-size_restricted.gif')")
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+  var arr = $('div')
+  var index = 0;
+  setInterval(function(){
+      $('div').css('background-color', getRandomColor() );
+      console.log(arr[index++ % arr.length]);
+  }, 800)
+
   var elements = $("p, h1, h2, h3, h4, h5, h6")
     for (let i = 0; i < elements.length; i++) {
       generateRainbowText(elements[i]);
@@ -15,7 +39,6 @@ const unicornMode = function(){
       element.appendChild(charElem);
     }
   }
-  $('body').css("background-image","url('https://thumbs.gfycat.com/EmbarrassedLegitimateBullmastiff-size_restricted.gif')")
 }
 
 
