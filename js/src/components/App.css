@@ -1,0 +1,129 @@
+/* * {
+  border: 1px dashed magenta !important;
+} */
+
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+form{
+  diplay: inline-block;
+}
+
+.BackdropColor {
+  background: linear-gradient(to bottom,  #f27a5e 0%,#f25050 74%,#f25050 95%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f27a5e', endColorstr='#f25050',GradientType=0 ); /* IE6-9 */
+  height: 100vw;
+}
+
+
+.postIt{
+  -webkit-box-shadow: 6px 0px 19px -1px rgba(0,0,0,0.38);
+  box-shadow: 6px 0px 19px -1px rgba(0,0,0,0.38);
+  background-color: white;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+  /* transition: transform .2s; */
+}
+
+.postIt:hover{
+  /* transform: scale(1.2); */
+}
+
+.postItsml {
+  width: 150px;
+  margin: 10px;
+  height: 175px;
+
+}
+
+.postItlrg {
+  width: 330px;
+  margin: 10px;
+  height: 175px;
+}
+
+
+.nameInput{
+  width: 100%;
+  height: 40px;
+  width: 100%;
+  height: 110px;
+  border: none;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Permanent Marker', cursive;
+  color: #010440git ;
+  background-color: #F2F0CE;
+}
+
+.gridme{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#nameBox {
+  transform: rotate(2deg);
+  background-color: #F2F0CE;
+}
+#fillMurrayBox {
+  transform: rotate(-1deg);
+}
+#placeCageBox {
+  transform: rotate(-2.3deg);
+}
+#customHeaderBox {
+  display: inline-block;
+  text-align: center;
+  transform: rotate(4deg);
+  padding: 31px;
+}
+#customBackgroundBox {
+    padding: 31px;
+    display: inline-block;
+    text-align: center;
+    transform: rotate(-0.5deg);
+}
+#awwSnapBox {
+  display: inline-block;
+  text-align: center;
+  transform: rotate(4deg);
+  background-image: url("https://systweak1.vo.llnwd.net/content/wp/systweakblogsnew/uploads_new/2018/03/How-to-Fix-Aw-Snap-Error-in-Chrome1.jpg");
+  background-size: 90%;
+  padding: 69px;
+}
+
+#submitButtonBox {
+  display: inline-block;
+  text-align: center;
+  transform: rotate(-2deg);
+  padding: 37px;
+  background-image: url("https://visualpharm.com/assets/258/Save-595b40b65ba036ed117d160b.svg");
+  background-size: 51%
+}
+
+
+input[type=checkbox], input[type=radio] {
+    height: 2em;
+    width: 4em;
+}
+
+.padding10px {
+  padding: 10px;
+  display: inline-block;
+}
+
+#submitButton {
+  height: 36px;
+  width: 74px;
+  margin: 7px 0px;
+  border-radius: 5px;
+}
+#submitButton:hover {
+  background-color: green;
+  color: white;
+  height: 36px;
+  width: 74px;
+  margin: 7px 0px;
+  border-radius: 5px;
+}
