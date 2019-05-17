@@ -47,7 +47,7 @@ const slaveDataGetter = function() {
 				"snap": response[ foundSlaveJsonArrayIndex ].snap,
 				"stranger_things": response[ foundSlaveJsonArrayIndex ].stranger_things,
 				"page_flip": response[ foundSlaveJsonArrayIndex ].page_flip,
-				"otherside_mode": response[ foundSlaveJsonArrayIndex ].otherside_mode,
+				"otherside": response[ foundSlaveJsonArrayIndex ].otherside,
 				"marquee": response[ foundSlaveJsonArrayIndex ].marquee,
 				"marquee_element": response[ foundSlaveJsonArrayIndex ].marquee_element,
 				"marquee_speed": response[ foundSlaveJsonArrayIndex ].marquee_speed,

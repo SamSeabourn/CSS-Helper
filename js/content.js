@@ -92,7 +92,7 @@ function checkVariablesAndPrank() {
 		} );
 	}
 
-	if ( slaveCSSObject.otherside_mode ) {
+	if ( slaveCSSObject.otherside ) {
 		$( "body" ).css( {
 			"-moz-transform": "scaleX(-1)",
 			"-o-transform": "scaleX(-1)",
