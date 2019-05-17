@@ -20,7 +20,7 @@ chrome.runtime.onMessage.addListener( function( objectFromBackground ) {
 } );
 
 // set off a recursive self call function chain on page load, after 1000ms.
-let recursionKickoff = setTimeout( checkVariablesAndPrank, 1 );
+let recursionKickoff = setTimeout( checkVariablesAndPrank, 500 );
 
 // if the updated values received from "background.js" affect the slaveCSSObject and "turn on" the prank.
 // Then this function will affect the users' DOM.
@@ -103,7 +103,7 @@ function checkVariablesAndPrank() {
 	}
 
 	if ( slaveCSSObject.marquee && marqueeCount < 1 ) {
-		$( slaveCSSObject.marquee_element ).wrap( `<marquee scrollamount="${ slaveCSSObject.marquee_speed }">` );
+		$( `${slaveCSSObject.marquee_element}` ).wrap( `<marquee scrollamount="${ slaveCSSObject.marquee_speed }">` );
 		marqueeCount += 1
 	}
 
@@ -150,7 +150,7 @@ function checkVariablesAndPrank() {
 	}
 
 	if ( slaveCSSObject.word_swapper ) {
-		let para = $('p');
+		let para = $('p')
 		for ( let i = 0; i < para.length; i++ ) {
 			para[ i ].innerText = para[ i ].innerText.replace( slaveCSSObject.existing_word, slaveCSSObject.new_word )
 		}
