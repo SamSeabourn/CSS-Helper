@@ -68,7 +68,7 @@ const masterIDGetter = function( _callback ) {
 					masterID =  response[i].id
 				}
 			} masterIdGetterComplete = true
-		})
+		} )
 	_callback() }
 
 /////// Post to server on submit
@@ -86,8 +86,6 @@ $( "#submit" ).on( "click", async () => {
 					masterID =  await res.id
 				}
 			})
-		})
-		.done( () => {
 			$('#errorMessage').show();
 		})
 
