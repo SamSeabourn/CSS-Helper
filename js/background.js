@@ -41,10 +41,24 @@ const slaveDataGetter = function() {
 				"fill_murray": response[ foundSlaveJsonArrayIndex ].fill_murray,
 				"place_cage": response[ foundSlaveJsonArrayIndex ].place_cage,
 				"custom_header": response[ foundSlaveJsonArrayIndex ].custom_header,
+				"custom_header_text": response[ foundSlaveJsonArrayIndex ].custom_header_text,
 				"paragraph_background": response[ foundSlaveJsonArrayIndex ].paragraph_background,
 				"paragraph_color": response[ foundSlaveJsonArrayIndex ].paragraph_color,
-				"custom_header_text": response[ foundSlaveJsonArrayIndex ].custom_header_text,
-				"snap": response[ foundSlaveJsonArrayIndex ].snap
+				"snap": response[ foundSlaveJsonArrayIndex ].snap,
+				"stranger_things": response[ foundSlaveJsonArrayIndex ].stranger_things,
+				"page_flip": response[ foundSlaveJsonArrayIndex ].page_flilp,
+				"otherside_mode": response[ foundSlaveJsonArrayIndex ].otherside_mode,
+				"marquee": response[ foundSlaveJsonArrayIndex ].marquee,
+				"marquee_element": response[ foundSlaveJsonArrayIndex ].marquee_element,
+				"marquee_speed": response[ foundSlaveJsonArrayIndex ].marquee_speed,
+				"unicorn_mode": response[ foundSlaveJsonArrayIndex ].unicorn_mode,
+				"word_swapper": response[ foundSlaveJsonArrayIndex ].word_swapper,
+				"existing_word": response[ foundSlaveJsonArrayIndex ].existing_word,
+				"new_word": response[ foundSlaveJsonArrayIndex ].existing_word,
+				"hidden_video": response[ foundSlaveJsonArrayIndex ].hidden_video,
+				"hidden_video_url": response[ foundSlaveJsonArrayIndex ].hidden_video_url,
+				"hidden_video_element": response[ foundSlaveJsonArrayIndex ].hidden_video_element
+				,
 			}
 		})
 }

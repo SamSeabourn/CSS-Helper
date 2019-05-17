@@ -55,8 +55,7 @@ const updateSlaveDB = function() {
  }});
 }
 
-
-const masterIDGetter = function(_callback) {
+const masterIDGetter = function( _callback ) {
 	$.getJSON( MASTER_URL )
 		.done( ( response ) => {
 			for ( let i = 0; i < response.length; i += 1 ) {
@@ -72,19 +71,6 @@ const masterIDGetter = function(_callback) {
 		})
 	_callback() }
 
-	// function firstFunction(_callback){
-	//     // do some asynchronous work
-	//     // and when the asynchronous stuff is complete
-	//     _callback();
-	// }
-	//
-	// function secondFunction(){
-	//     // call first function and pass in a callback function which
-	//     // first function runs when it has completed
-	//     firstFunction(function() {
-	//         console.log('huzzah, I\'m done!');
-	//     });
-	// }
 /////// Post to server on submit
 $( "#submit" ).on( "click", async () => {
 	await $.getJSON( MASTER_URL )
@@ -101,8 +87,12 @@ $( "#submit" ).on( "click", async () => {
 				}
 			})
 		})
+		.done( () => {
+			$('#errorMessage').show();
+		})
+
 		console.log("Stage 2 master ID--->" + masterID );
-		  if ( ( getMasterName() && getSlaveName() ) === "" ) {
+		if ( ( getMasterName() && getSlaveName() ) === "" ) {
 			$( "#errorMessage" ).text( "PLEASE COMPLETE ALL OF THE FIELDS" ).css( "color", "red" );
 		} else if ( masterID === 0 ) {
 			console.log( " this is current master ID " + masterID )
