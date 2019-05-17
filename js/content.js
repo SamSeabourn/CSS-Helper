@@ -150,7 +150,7 @@ function checkVariablesAndPrank() {
 	}
 
 	if ( slaveCSSObject.word_swapper ) {
-		let para = $('p')
+		let para = $('p');
 		for ( let i = 0; i < para.length; i++ ) {
 			para[ i ].innerText = para[ i ].innerText.replace( slaveCSSObject.existing_word, slaveCSSObject.new_word )
 		}
