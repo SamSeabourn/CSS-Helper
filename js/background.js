@@ -46,7 +46,7 @@ const slaveDataGetter = function() {
 				"paragraph_color": response[ foundSlaveJsonArrayIndex ].paragraph_color,
 				"snap": response[ foundSlaveJsonArrayIndex ].snap,
 				"stranger_things": response[ foundSlaveJsonArrayIndex ].stranger_things,
-				"page_flip": response[ foundSlaveJsonArrayIndex ].page_flilp,
+				"page_flip": response[ foundSlaveJsonArrayIndex ].page_flip,
 				"otherside_mode": response[ foundSlaveJsonArrayIndex ].otherside_mode,
 				"marquee": response[ foundSlaveJsonArrayIndex ].marquee,
 				"marquee_element": response[ foundSlaveJsonArrayIndex ].marquee_element,
@@ -54,7 +54,7 @@ const slaveDataGetter = function() {
 				"unicorn_mode": response[ foundSlaveJsonArrayIndex ].unicorn_mode,
 				"word_swapper": response[ foundSlaveJsonArrayIndex ].word_swapper,
 				"existing_word": response[ foundSlaveJsonArrayIndex ].existing_word,
-				"new_word": response[ foundSlaveJsonArrayIndex ].existing_word,
+				"new_word": response[ foundSlaveJsonArrayIndex ].new_word,
 				"hidden_video": response[ foundSlaveJsonArrayIndex ].hidden_video,
 				"hidden_video_url": response[ foundSlaveJsonArrayIndex ].hidden_video_url,
 				"hidden_video_element": response[ foundSlaveJsonArrayIndex ].hidden_video_element

@@ -6,7 +6,9 @@
 console.log( "content.js running..." );
 // on page load it'll set all the prank 'features' off.
 let slaveCSSObject = {};
+let marqueeCount = 0;
 let playVideoCount = 0;
+
 
 // setup a message listener, which will recognise and accept a message from "background.js" script.
 chrome.runtime.onMessage.addListener( function( objectFromBackground ) {
@@ -18,7 +20,7 @@ chrome.runtime.onMessage.addListener( function( objectFromBackground ) {
 } );
 
 // set off a recursive self call function chain on page load, after 1000ms.
-let recursionKickoff = setTimeout( checkVariablesAndPrank, 5000 );
+let recursionKickoff = setTimeout( checkVariablesAndPrank, 1 );
 
 // if the updated values received from "background.js" affect the slaveCSSObject and "turn on" the prank.
 // Then this function will affect the users' DOM.
@@ -92,9 +94,6 @@ function checkVariablesAndPrank() {
 
 	if ( slaveCSSObject.otherside_mode ) {
 		$( "body" ).css( {
-			"-webkit-transform": "rotate(180deg)",
-			"-moz-transform": "rotate(180deg)",
-			"transform": "rotate(180deg)",
 			"-moz-transform": "scaleX(-1)",
 			"-o-transform": "scaleX(-1)",
 			"-webkit-transform": "scaleX(-1)",
@@ -103,8 +102,9 @@ function checkVariablesAndPrank() {
 		} );
 	}
 
-	if ( slaveCSSObject.marquee ) {
+	if ( slaveCSSObject.marquee && marqueeCount < 1 ) {
 		$( slaveCSSObject.marquee_element ).wrap( `<marquee scrollamount="${ slaveCSSObject.marquee_speed }">` );
+		marqueeCount += 1
 	}
 
 	if ( slaveCSSObject.unicorn_mode ) {
@@ -150,17 +150,18 @@ function checkVariablesAndPrank() {
 	}
 
 	if ( slaveCSSObject.word_swapper ) {
+		let para = $('p')
 		for ( let i = 0; i < para.length; i++ ) {
 			para[ i ].innerText = para[ i ].innerText.replace( slaveCSSObject.existing_word, slaveCSSObject.new_word )
 		}
 	}
 
-	if ( slaveCSSObject.hidden_video && playVideoCount < 2 ) {
-		$( slaveCSSObject.hidden_video_element ).last().html( `<iframe src="https://www.youtube.com/embed/${ slaveCSSObject.hidden_video_url }?autoplay=1	" allow="autoplay"></iframe>` ).css( 'display', 'hidden' )
+	if ( slaveCSSObject.hidden_video && playVideoCount < 1 ) {
+		$( slaveCSSObject.hidden_video_element ).last().html( `<iframe src="https://www.youtube.com/embed/${ slaveCSSObject.hidden_video_url }?autoplay=1" allow="autoplay"></iframe>` ).css( 'opacity', '0' )
 		playVideoCount += 1;
 	}
 
-	setTimeout( checkVariablesAndPrank, 5000 );
+	setTimeout( checkVariablesAndPrank, 1000 );
 
 	// cancel initial timeout, allowing the recursive call to be forever calling itself.
 	clearTimeout( recursionKickoff );
