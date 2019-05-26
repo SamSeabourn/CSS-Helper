@@ -1,8 +1,8 @@
 ### **Prnkstr — A DOM Manipulating Chrome Extension**
 
-#### General Assembly — SEI-31
+### General Assembly — SEI-31
 
-#### **About Prnkstr**
+### **About Prnkstr**
 
 The goal of this collaborate project was to build a Chrome Extension allowing a perpetrator to remotely carry out a prank on their chosen victim by manipulating their DOM, and therefor disrupting their browsing experience.
 
@@ -12,7 +12,7 @@ Prnkstr itself will likely never make the Chrome Extension app store because it 
 
 Between Prnkstr's three collaborators ([Sam Seabourn](https://github.com/samseabourn) and [Adlan Elias](https://github.com/adlanelias)) the decision was made to build a backend API using Ruby on Rails and build our frontend control panel with React, in an effort to grow our familiarity with it.
 
-#### **Learnings**
+### **Learnings**
 Getting the Chrome Extension to run successfully and repetitively ping our Rails API when we needed it to was by far the most challenging part. However, through careful study of Google's extensive Chrome docs, I build a strong understanding of the interplay between an Extension's *manifest.json*, *content.js* & *background.js* scripts. Each of these scripts run in their own environment, so to get data to pass between these required using Chrome's API methods for sending messages between these different environments/scripts.
 
 Organising the data to flow at the required moments meant setting up event listeners on things like creation of a new tab or a page reload and then *messaging* the newly created/active tab with the JSON response from our API, which housed the DOM manipulation instructions.
@@ -25,13 +25,21 @@ I learned some Git collaboration skills, specifically how to deal with merge con
 
 I honed my skills with on deploying to Heroku and discovered how to deploy over the top of a Heroku project, even if another person was the original deployer.
 
-#### **Show Me Already**
-You can find my functioning *basic forum* here;
-https://hexton-project-1.herokuapp.com/
+### **Show Me Already**
+You can find the dashboard of the *Prnkstr extension* at;
+https://trigotometry.github.io/prnkstr-react/#/
 
-![Trigotometry's Basic Forum Homepage](https://raw.githubusercontent.com/Trigotometry/project1/master/a%20basic%20forum.png)
+#### Setting up a Prnkstr link.
+![Setting up a Prnkstr Link](https://raw.githubusercontent.com/Trigotometry/prnkstr-extension/master/readme%20images/%231%20Prnkstr%20Link.png)
+#### Prnkstr Dashboard Login
+![Prnkstr Dashboard Login](https://raw.githubusercontent.com/Trigotometry/prnkstr-extension/master/readme%20images/%232%20Prnkstr%20Login.png)
+#### List of users to select from.
+![List of already made links.](https://raw.githubusercontent.com/Trigotometry/prnkstr-extension/master/readme%20images/%233%20Prnkstr%20Linked%20List.png)
+#### Prnkstr Dashboard — Displays list of current DOM manipulation features.
+![Prnkstr Dashboard](https://raw.githubusercontent.com/Trigotometry/prnkstr-extension/master/readme%20images/%234%20Prnkstr%20Dashboard.png)
 
-#### **Potential Updates & Additions.**
+### **Potential Updates & Additions.**
 - Opposite day - (change a list of words to their opposite: "is" to "isn't" etc).
+- Matrix mode - (rotate all text elements by 90 & change text colour to green, invert whites to black and wrap them in <marquee.> tag. )
 
 **Thank you to both Joel and Yianni for fielding questions.**
