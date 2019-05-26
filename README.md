@@ -1,4 +1,4 @@
-### **Prnkstr — A DOM Manipulating Chrome Extension**
+### **Prnkstr — A DOM manipulating Chrome extension.**
 
 ### General Assembly — SEI-31
 
