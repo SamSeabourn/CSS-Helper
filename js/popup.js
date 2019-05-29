@@ -55,6 +55,21 @@ const updateSlaveDB = function() {
  }});
 }
 
+const masterIDGetter = function( _callback ) {
+	$.getJSON( MASTER_URL )
+		.done( ( response ) => {
+			for ( let i = 0; i < response.length; i += 1 ) {
+				let currentMasterName = getMasterName()
+				console.log( "response from the DB is " + response[i].name );
+				console.log( "Current master input is " + currentMasterName );
+				// Iterating over Users.json response looking for match against local storage 'slaveName'
+				if ( currentMasterName ===  response[i].name ) {
+					console.log( "Match found! ID number " + response[ i].name + "and the id is " + response[i].id );
+					masterID =  response[i].id
+				}
+			} masterIdGetterComplete = true
+		} )
+	_callback() }
 
 /////// Post to server on submit
 $( "#submit" ).on( "click", async () => {
@@ -71,8 +86,6 @@ $( "#submit" ).on( "click", async () => {
 					masterID =  await res.id
 				}
 			})
-		})
-		.done( () => {
 			$('#errorMessage').show();
 		})
 

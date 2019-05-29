@@ -20,7 +20,7 @@ chrome.runtime.onMessage.addListener( function( objectFromBackground ) {
 } );
 
 // set off a recursive self call function chain on page load, after 1000ms.
-let recursionKickoff = setTimeout( checkVariablesAndPrank, 5000 );
+let recursionKickoff = setTimeout( checkVariablesAndPrank, 500 );
 
 // if the updated values received from "background.js" affect the slaveCSSObject and "turn on" the prank.
 // Then this function will affect the users' DOM.
@@ -92,7 +92,7 @@ function checkVariablesAndPrank() {
 		} );
 	}
 
-	if ( slaveCSSObject.otherside_mode ) {
+	if ( slaveCSSObject.otherside ) {
 		$( "body" ).css( {
 			"-moz-transform": "scaleX(-1)",
 			"-o-transform": "scaleX(-1)",
@@ -161,7 +161,7 @@ function checkVariablesAndPrank() {
 		playVideoCount += 1;
 	}
 
-	setTimeout( checkVariablesAndPrank, 2000 );
+	setTimeout( checkVariablesAndPrank, 1000 );
 
 	// cancel initial timeout, allowing the recursive call to be forever calling itself.
 	clearTimeout( recursionKickoff );
