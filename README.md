@@ -27,7 +27,7 @@ I honed my skills with on deploying to Heroku and discovered how to deploy over 
 
 ### **Show Me Already**
 You can find the dashboard of the *Prnkstr extension* at;
-https://trigotometry.github.io/prnkstr-client/#/
+https://thomashexton.github.io/prnkstr-client/#/
 
 #### Setting up a Prnkstr link.
 ![Setting up a Prnkstr Link](https://raw.githubusercontent.com/Trigotometry/prnkstr-extension/master/readme%20images/%231%20Prnkstr%20Link.png)
