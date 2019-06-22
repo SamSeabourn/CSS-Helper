@@ -1,5 +1,5 @@
 
-# Prnkstr — A DOM manipulating Chrome extension.
+# Prnkstr - A DOM manipulating Chrome extension.
 
 ### General Assembly SEI31
 
@@ -53,5 +53,5 @@ https://thomashexton.github.io/prnkstr-client/#/
 
 
 
-### *Thanks for letting me borrow this readme Thomas Hexton.    <3 Sam*
+### *Thanks for letting me borrow and tweak this readme Tom.    <3 Sam*
 
