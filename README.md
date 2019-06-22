@@ -28,6 +28,8 @@ I learned that communication is key. I worked closely with my team over the week
 
 Once we had the app working our team and I managed to add another 5 features on the final day and I managed to get all the CSS done for the final page done too.
 
+Ultimately as a proof of concept this app works, however I would love to migrate everything to firebase and secure the app.
+
 ![](images/prnkstr.gif)
 
 ### **How does it work?**
@@ -46,7 +48,8 @@ https://thomashexton.github.io/prnkstr-client/#/
 ### Potential Additions.
 - Opposite day - (change a list of words to their opposite: "is" to "isn't" etc).
 - Matrix mode - (rotate all text elements by 90 & change text colour to green, invert whites to black and wrap them in <marquee.> tag. )
-- Migrate the database to Firebase for more speedy updating
+- Migrate the database to Firebase for more speedy updating and security
+
 
 
 
