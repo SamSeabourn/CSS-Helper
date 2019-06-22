@@ -28,7 +28,7 @@ I learned that communication is key. I worked closely with my team over the week
 
 Once we had the app working our team and I managed to add another 5 features on the final day and I managed to get all the CSS done for the final page done too.
 
-Ultimately as a proof of concept this app works, however I would love to migrate everything to firebase and secure the app.
+Ultimately as a proof of concept this app works, however I would love to migrate everything to Firebase and increase the app.
 
 ![](images/prnkstr.gif)
 
