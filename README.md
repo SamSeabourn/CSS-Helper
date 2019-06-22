@@ -13,7 +13,7 @@ Prnkstr itself will likely never make the Chrome Extension app store because it 
 
 Between Prnkstr's three collaborators ([Thomas Hexton](https://github.com/thomashexton) and [Adlan Elias](https://github.com/adlanelias)) the decision was made to build a backend API using Ruby on Rails and build our frontend control panel with React, in an effort to grow our familiarity with it.
 
-![
+![](images/PRNKSTR.gif)
 
 ### **Learnings**
 Getting the Chrome Extension to run successfully and repetitively ping our Rails API when we needed it to was by far the most challenging part. However, through careful study of Google's extensive Chrome docs, I build a strong understanding of the interplay between an Extension's *manifest.json*, *content.js* & *background.js* scripts. Each of these scripts run in their own environment, so to get data to pass between these required using Chrome's API methods for sending messages between these different environments/scripts.
