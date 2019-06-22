@@ -1,7 +1,7 @@
 
 # Prnkstr — A DOM manipulating Chrome extension.
 
-### General Assembly — SEI-31
+### General Assembly SEI31
 
 ### **About Prnkstr**
 
