@@ -4,7 +4,7 @@
 
 ### **About Prnkstr**
 
-The goal of this collaborate project was to build a Chrome Extension allowing a perpetrator to remotely carry out a prank on their chosen victim by manipulating their DOM, and therefor disrupting their browsing experience.
+The goal of this collaborative project was to build a Chrome Extension allowing a perpetrator to remotely carry out a prank on their chosen victim by manipulating their DOM, and therefor disrupting their browsing experience.
 
 Once installed, Prnkstr allows you to easily name and setup up a link between a victim's Chrome browser and assign it to your *master* account. Prnkstr then runs in the background, and upon a each page reload receives the (harmless) DOM manipulation instructions from a remote database, where the perpetrator can choose enable or disable many features such as replacing all images from FillMurray.com, change all instances of *is* to *isn't* or even something as simple as wrapping all paragraph elements in a <marquee.> tag, bringing back some happily forgotten 90s web design memories.
 
